@@ -90,10 +90,7 @@ class Transaction(BaseResource):
                 raise ValueError("end_user must be a valid end_user_id or object")
 
             transactions = [
-                {
-                    **t,
-                    **{"end_user_id": end_user_id},
-                }
+                {**t, "end_user_id": end_user_id}
                 for t in transactions
             ]
         if not all("description" in t and "amount" in t for t in transactions):

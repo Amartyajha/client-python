@@ -85,12 +85,7 @@ class TestCreate(unittest.TestCase):
                 headers=ANY,
                 json={
                     "transactions": [
-                        {
-                            **self.request_payload["transactions"][0],
-                            **{
-                                "end_user_id": self.end_user.end_user_id,
-                            },
-                        }
+                        {**self.request_payload["transactions"][0], "end_user_id": self.end_user.end_user_id}
                     ]
                 },
                 auth=ANY,
@@ -113,12 +108,7 @@ class TestCreate(unittest.TestCase):
                 headers=ANY,
                 json={
                     "transactions": [
-                        {
-                            **self.request_payload["transactions"][0],
-                            **{
-                                "end_user_id": self.end_user.end_user_id,
-                            },
-                        }
+                        {**self.request_payload["transactions"][0], "end_user_id": self.end_user.end_user_id}
                     ]
                 },
                 auth=ANY,
@@ -196,7 +186,7 @@ class TestCreateFromProvider(unittest.TestCase):
                 "currency": self.normalized_payload["currency"],
             },
             "category": self.normalized_payload["categories_default"],
-            "date": self.normalized_payload["timestamp"].split("T")[0],
+            "date": self.normalized_payload['timestamp'].split('T', maxsplit=1)[0],
             "description": {
                 "original": self.normalized_payload["description"],
             },
