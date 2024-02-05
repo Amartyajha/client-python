@@ -11,7 +11,7 @@ class MockResponse:
 
     @property
     def ok(self):
-        return self.status_code in [200, 201, 202]
+        return self.status_code in {200, 201, 202}
 
     @property
     def content(self):
